@@ -34,4 +34,19 @@ public class Tests {
         assertEquals(head.next.value, "C");
     }
 
+    @Test
+    public void addToStart(){
+        Node head = new Node("B");
+        addToStart(head, new Node("A"));
+        assertEquals("A", head.value);
+        assertEquals("B", head.next.value);
+    }
+
+    private void addToStart(Node head, Node a) {
+        String headValue = head.value;
+        head.value = a.value;
+        a.value = headValue;
+        head.next = a;
+    }
+
 }
