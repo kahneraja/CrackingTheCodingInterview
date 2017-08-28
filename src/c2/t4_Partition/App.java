@@ -1,14 +1,24 @@
 package c2.t4_Partition;
 
 public class App {
+
+    /**
+     * @param head
+     * @param p
+     * @return
+     *
+     * Edge cases:
+     * - head is null
+     * - head.next is null
+     * - start = tail
+     */
+
     public static Node partition(Node head, int p) {
         if (head == null || head.next == null){
             return head;
         }
-
         Node start = new Node(head.value);
         Node tail = start;
-
         while(head.next != null){
             int i = head.next.value;
             if (i < p){
@@ -21,19 +31,17 @@ public class App {
                     tail = start.next;
                 }
             } else {
+                Node tail2 = new Node(i);
                 if (tail == start){
-                    start.next = new Node(i);
+                    start.next = tail2;
                     tail = start.next;
                 } else {
-                    int currentTailValue = tail.value;
-                    tail.value = i;
-                    tail.next = new Node(currentTailValue);
+                    tail.next = tail2;
                     tail = tail.next;
                 }
             }
-            head = head.next; // deallocate
+            head = head.next; // head deallocated
         }
-
         return start;
     }
 
