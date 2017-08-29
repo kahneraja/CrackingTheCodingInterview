@@ -1,5 +1,7 @@
 package c2.t4_Partition;
 
+import c2.Node;
+
 public class App {
 
     /**

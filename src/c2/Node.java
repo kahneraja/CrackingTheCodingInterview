@@ -1,4 +1,4 @@
-package c2.t4_Partition;
+package c2;
 
 public class Node {
     public int value;

@@ -1,11 +1,11 @@
 package c2.t4_Partition;
 
+import c2.Node;
 import org.junit.jupiter.api.Test;
 
-import java.util.Random;
-
+import static c2.NodeUtils.setup;
+import static c2.NodeUtils.setupDisorderedLinkedList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Tests {
 
@@ -49,38 +49,6 @@ public class Tests {
     public void testBB(){
         Node head = setup("5,4,3,2,1");
         assertEquals("5,4,3,2,1", head.print());
-    }
-
-    private Node setup(String sequence) {
-        Node head = null;
-        Node current = null;
-        for(String s: sequence.split(",")){
-            int i = Integer.parseInt(s);
-            if (head == null){
-                head = new Node(i);
-                current = head;
-            } else {
-                current.next = new Node(i);
-                current = current.next;
-            }
-        }
-        return head;
-    }
-
-    private Node setupDisorderedLinkedList(int len) {
-        Random r = new Random();
-
-        Node current = new Node(1);
-        Node head = current;
-        for (int i = 1; i < len - 1; i++) {
-            int j = i;
-            if (i % 2 != 0){
-                j = len - i;
-            }
-            current.next = new Node(j);
-            current = current.next;
-        }
-        return head;
     }
 
 }
