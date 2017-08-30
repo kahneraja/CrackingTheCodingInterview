@@ -1,11 +1,11 @@
 package c2.t5_SumList;
 
-import c2.Node;
+import c2.IntNode;
 
 public class App {
-    public static Node sumList(Node a, Node b) {
-        Node head = null;
-        Node tail = null;
+    public static IntNode sumList(IntNode a, IntNode b) {
+        IntNode head = null;
+        IntNode tail = null;
         boolean hasRemainder = false;
         while(a != null || b != null) {
 
@@ -22,13 +22,13 @@ public class App {
             }
 
             if (head == null){
-                head = new Node(sum);
+                head = new IntNode(sum);
                 tail = null;
             } else if (tail == null) {
-                tail = new Node(sum);
+                tail = new IntNode(sum);
                 head.next = tail;
             } else {
-                tail.next = new Node(sum);
+                tail.next = new IntNode(sum);
                 tail = tail.next;
             }
 
@@ -42,20 +42,20 @@ public class App {
         }
 
         if (hasRemainder){
-            tail.next = new Node(1);
+            tail.next = new IntNode(1);
         }
 
         return head;
     }
 
 
-    private static int sum(Node a, Node b) {
+    private static int sum(IntNode a, IntNode b) {
         int sum = 0;
         if (a != null){
-            sum += a.value;
+            sum += a.v;
         }
         if (b != null){
-            sum += b.value;
+            sum += b.v;
         }
         return sum;
     }

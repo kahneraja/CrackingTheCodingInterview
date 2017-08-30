@@ -1,6 +1,6 @@
 package c2.t4_Partition;
 
-import c2.Node;
+import c2.IntNode;
 
 public class App {
 
@@ -15,25 +15,25 @@ public class App {
      * - start = tail
      */
 
-    public static Node partition(Node head, int p) {
+    public static IntNode partition(IntNode head, int p) {
         if (head == null || head.next == null){
             return head;
         }
-        Node start = new Node(head.value);
-        Node tail = start;
+        IntNode start = new IntNode(head.v);
+        IntNode tail = start;
         while(head.next != null){
-            int i = head.next.value;
+            int i = head.next.v;
             if (i < p){
-                int currentStartValue = start.value;
-                Node start2 = new Node(currentStartValue);
+                int currentStartValue = start.v;
+                IntNode start2 = new IntNode(currentStartValue);
                 start2.next = start.next;
-                start.value = i;
+                start.v = i;
                 start.next = start2;
                 if (tail == start){
                     tail = start.next;
                 }
             } else {
-                Node tail2 = new Node(i);
+                IntNode tail2 = new IntNode(i);
                 if (tail == start){
                     start.next = tail2;
                     tail = start.next;
@@ -47,8 +47,8 @@ public class App {
         return start;
     }
 
-    public static void trim(Node head, int i) {
-        Node n = head;
+    public static void trim(IntNode head, int i) {
+        IntNode n = head;
         int j = 0;
         while(j < i - 1 && n.next != null){
             n = n.next;
