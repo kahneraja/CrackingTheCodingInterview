@@ -92,10 +92,4 @@ public class MultiStack<T> {
         return count;
     }
 
-
-    // isFull
-    // shiftLeft
-    // shiftRight
-    // only one stack?
-    // index1 using all the allocation.
 }
