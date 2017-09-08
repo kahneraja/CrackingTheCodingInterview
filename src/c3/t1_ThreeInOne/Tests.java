@@ -92,10 +92,19 @@ public class Tests {
         stack.push(1, 6);
         stack.pop(0);
         stack.pop(1);
-        stack.push(0, 5);
+        stack.push(0, 3);
         stack.push(1, 6);
         assertEquals("1,2,3,4,5,6", stack.print());
-        assserEquals(stack.isFull(),true);
+        assertEquals(stack.isFull(),true);
+    }
+
+    @Test
+    public void testI() {
+        MultiStack stack = new MultiStack<Integer>(3, 3);
+        stack.push(0, 1);
+        stack.push(1, 2);
+        stack.push(2, 3);
+        assertEquals("1,2,3", stack.print());
     }
 
 }

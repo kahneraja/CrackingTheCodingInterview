@@ -2,8 +2,8 @@ package c3.t1_ThreeInOne;
 
 public class MultiStack<T> {
 
-    private MetaInfo[] meta;
-    private T[] a;
+    private MetaInfo[] meta; // [{startPos: 0, len: 2}, {}]
+    private T[] a;  // [1,2,4,5,null,null]
 
     public MultiStack(int size, int allocation) {
         setup(size);
@@ -51,8 +51,8 @@ public class MultiStack<T> {
         }
         if (index < meta.length - 1) {
             int startPosition = meta[index + 1].startPosition;
-            for (int position = a.length - 1; position > startPosition; position--) {
-                a[position] = a[position - 1];
+            for (int position = a.length - 1; position >= startPosition; position--) {
+                a[position] = a[position - 1]; //
             }
         }
     }
