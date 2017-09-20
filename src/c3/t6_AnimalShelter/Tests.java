@@ -9,15 +9,15 @@ public class Tests {
     @Test
     public void testA(){
         AnimalShelter shelter = new AnimalShelter();
-        shelter.enqueue('c');
-        shelter.enqueue('d');
-        shelter.enqueue('c');
-        char a = shelter.dequeueAny();
-        char d = shelter.dequeueDog();
-        char c = shelter.dequeueCat();
-        assertEquals('c', a);
-        assertEquals('c', c);
-        assertEquals('d', d);
+        shelter.enqueue(new Cat());
+        shelter.enqueue(new Dog());
+        shelter.enqueue(new Cat());
+        Animal a = shelter.dequeueAny();
+        Animal b = shelter.dequeueDog();
+        Animal c = shelter.dequeueCat();
+        assertEquals(Cat.class, a.getClass());
+        assertEquals(Dog.class, b.getClass());
+        assertEquals(Cat.class, c.getClass());
     }
 
 }

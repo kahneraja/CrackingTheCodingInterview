@@ -4,27 +4,37 @@ import java.util.LinkedList;
 
 public class AnimalShelter {
 
-    LinkedList<Character> list = new LinkedList();
+    int order = 0;
+    LinkedList<Animal> cats = new LinkedList();
+    LinkedList<Animal> dogs = new LinkedList();
 
-    public void enqueue(char v) {
-        list.add(v);
+    public void enqueue(Animal a) {
+        a.order = order;
+        if (a.getClass() == Cat.class){
+            cats.add(a);
+        } else {
+            dogs.add(a);
+        }
+        order++;
     }
 
-    /**
-     * seems this questions is primarily about type safety rather than queue / stack performance. bleh. pass.
-     */
+    public Animal dequeueAny() {
+        Animal cat = cats.peekLast();
+        Animal dog = dogs.peekLast();
+        if (cat != null && cat.order > dog.order){
+            cats.removeLast();
+            return cat;
+        }
 
-    public char dequeueAny() {
-        return list.removeLast();
+        dogs.removeLast();
+        return dog;
     }
 
-    public char dequeueDog() {
-        int index = list.lastIndexOf('d');
-        return list.remove(index);
+    public Animal dequeueDog() {
+        return dogs.removeLast();
     }
 
-    public char dequeueCat() {
-        int index = list.lastIndexOf('c');
-        return list.remove(index);
+    public Animal dequeueCat() {
+        return cats.removeLast();
     }
 }
