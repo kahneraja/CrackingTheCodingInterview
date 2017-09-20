@@ -20,8 +20,4 @@ public class Tests {
         assertEquals('d', d);
     }
 
-    /**
-     * seems this questions is primarily about type safety rather than queue / stack performance. bleh. pass.
-     */
-
 }

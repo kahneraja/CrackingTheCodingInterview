@@ -10,6 +10,10 @@ public class AnimalShelter {
         list.add(v);
     }
 
+    /**
+     * seems this questions is primarily about type safety rather than queue / stack performance. bleh. pass.
+     */
+
     public char dequeueAny() {
         return list.removeLast();
     }
